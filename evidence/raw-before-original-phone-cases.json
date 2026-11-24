@@ -1,0 +1,67 @@
+{
+ "cases": [
+  {
+   "id": "B14",
+   "cat": "Boundary",
+   "desc": "phone 6 characters",
+   "input": "123456",
+   "expected": "blocked",
+   "actual": "accepted (valid)",
+   "pass": false
+  },
+  {
+   "id": "B15",
+   "cat": "Boundary",
+   "desc": "phone 7 characters",
+   "input": "1234567",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B16",
+   "cat": "Boundary",
+   "desc": "phone 20 characters",
+   "input": "+20 (010) 1234-5678-",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B17",
+   "cat": "Boundary",
+   "desc": "phone 21 characters",
+   "input": "+20 (010) 1234-5678-9",
+   "expected": "blocked",
+   "actual": "accepted (valid)",
+   "pass": false
+  },
+  {
+   "id": "I3",
+   "cat": "Invalid",
+   "desc": "phone letters only",
+   "input": "abcdefghij",
+   "expected": "blocked",
+   "actual": "accepted (valid)",
+   "pass": false
+  },
+  {
+   "id": "I4",
+   "cat": "Invalid",
+   "desc": "phone mixed digits and letters",
+   "input": "12345-abc",
+   "expected": "blocked",
+   "actual": "accepted (valid)",
+   "pass": false
+  },
+  {
+   "id": "I5",
+   "cat": "Invalid",
+   "desc": "phone valid international format",
+   "input": "+201001234567",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  }
+ ]
+}

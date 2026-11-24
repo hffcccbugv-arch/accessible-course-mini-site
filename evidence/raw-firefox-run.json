@@ -1,0 +1,274 @@
+{
+ "browser": " ",
+ "cases": [
+  {
+   "id": "E1",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E2",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E3",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E4",
+   "actual": "blocked: Please enter a number.",
+   "pass": true
+  },
+  {
+   "id": "E5",
+   "actual": "blocked: Please select one of these options.",
+   "pass": true
+  },
+  {
+   "id": "E6",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "E7",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B1",
+   "actual": "blocked: Please use at least 2 characters (you are currently using 1 characters).",
+   "pass": true
+  },
+  {
+   "id": "B2",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B3",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B4",
+   "actual": "value length 60",
+   "pass": true
+  },
+  {
+   "id": "B5",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B6",
+   "actual": "blocked: Please select a value that is no earlier than 12/01/2026.",
+   "pass": true
+  },
+  {
+   "id": "B7",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B8",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B9",
+   "actual": "blocked: Please select a value that is no later than 06/30/2027.",
+   "pass": true
+  },
+  {
+   "id": "B10",
+   "actual": "blocked: Please select a value that is no less than 1.",
+   "pass": true
+  },
+  {
+   "id": "B11",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B12",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B13",
+   "actual": "blocked: Please select a value that is no more than 999999.",
+   "pass": true
+  },
+  {
+   "id": "B14",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "B15",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B16",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B17",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I1",
+   "actual": "blocked: Please enter an email address.",
+   "pass": true
+  },
+  {
+   "id": "I2",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I3",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I4",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I5",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I6",
+   "actual": "blocked: Please enter a URL.",
+   "pass": true
+  },
+  {
+   "id": "I7",
+   "actual": "blocked: Please enter a URL.",
+   "pass": true
+  },
+  {
+   "id": "I8",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I9",
+   "actual": "blocked: Please select a valid value. The two nearest valid values are 1 and 2.",
+   "pass": true
+  },
+  {
+   "id": "I10",
+   "actual": "blocked: Please enter a number.",
+   "pass": true
+  }
+ ],
+ "checkboxes_valid": true,
+ "reset": "cleared",
+ "help_open": "false|Hide form help",
+ "help_closed": "true|Show form help",
+ "invalid_submit": "The form was not submitted. Correct the field marked as invalid, then submit again.|focus=student-name|js=http://localhost:5500/script.js",
+ "formdata_keys": "student_name=Test User&email=test@example.com&phone=+201001234567&start_date=2026-12-05&student_number=123456&portfolio_url=&study_format=online&topic_html=yes&topic_accessibility=yes",
+ "valid_submit_status": "Registration submitted to the local demonstration server. No information has been saved permanently.",
+ "tab": {
+  "index": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "A Register for the course | outline solid 3px",
+   "A Meet the course staff | outline solid 3px",
+   "A View the weekly class schedule | outline solid 3px",
+   "A Open the student registration form | outline solid 3px",
+   "A Read MDN's Learn web development guide | outline solid 3px",
+   "A Download the Web Design course outline ( | outline solid 3px",
+   "A Email the course team about a course que | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "staff": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "A Check the practical-session schedule | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "schedule": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "DIV Weekly timetable, scrollable | outline solid 3px",
+   "A Register using the student registration  | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "register": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "INPUT student_name | outline solid 3px",
+   "INPUT email | outline solid 3px",
+   "INPUT phone | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT student_number | outline solid 3px",
+   "INPUT portfolio_url | outline solid 3px",
+   "INPUT study_format | outline solid 3px",
+   "INPUT topic_html | outline solid 3px",
+   "INPUT topic_css | outline solid 3px",
+   "INPUT topic_accessibility | outline solid 3px",
+   "BUTTON Submit registration | outline solid 3px",
+   "BUTTON Reset form | outline solid 3px",
+   "BUTTON Show form help | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ]
+ },
+ "skip": {
+  "index": {
+   "visible": true,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "staff": {
+   "visible": true,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "schedule": {
+   "visible": true,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "register": {
+   "visible": true,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  }
+ },
+ "overflow": {
+  "index@390": "500/500",
+  "index@1400": "1400/1400",
+  "staff@390": "500/500",
+  "staff@1400": "1400/1400",
+  "schedule@390": "500/500",
+  "schedule@1400": "1400/1400",
+  "register@390": "500/500",
+  "register@1400": "1400/1400"
+ }
+}
