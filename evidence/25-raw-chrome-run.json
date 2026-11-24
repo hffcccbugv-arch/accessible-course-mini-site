@@ -1,0 +1,1645 @@
+{
+ "cases": [
+  {
+   "id": "E1",
+   "cat": "Empty",
+   "desc": "name empty",
+   "input": "(empty)",
+   "expected": "blocked",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E2",
+   "cat": "Empty",
+   "desc": "email empty",
+   "input": "(empty)",
+   "expected": "blocked",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E3",
+   "cat": "Empty",
+   "desc": "start date empty",
+   "input": "(empty)",
+   "expected": "blocked",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E4",
+   "cat": "Empty",
+   "desc": "student number empty",
+   "input": "(empty)",
+   "expected": "blocked",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  },
+  {
+   "id": "E5",
+   "cat": "Empty",
+   "desc": "study format: no radio selected",
+   "input": "(empty)",
+   "expected": "blocked",
+   "actual": "blocked: Please select one of these options.",
+   "pass": true
+  },
+  {
+   "id": "E6",
+   "cat": "Empty",
+   "desc": "phone empty (optional)",
+   "input": "(empty)",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "E7",
+   "cat": "Empty",
+   "desc": "URL empty (optional)",
+   "input": "(empty)",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B1",
+   "cat": "Boundary",
+   "desc": "name 1 character",
+   "input": "A",
+   "expected": "blocked",
+   "actual": "blocked: Please lengthen this text to 2 characters or more (you are currently using 1 character).",
+   "pass": true
+  },
+  {
+   "id": "B2",
+   "cat": "Boundary",
+   "desc": "name 2 characters",
+   "input": "Ab",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B3",
+   "cat": "Boundary",
+   "desc": "name 60 characters",
+   "input": "60 characters",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B4",
+   "cat": "Boundary",
+   "desc": "name typed 61 characters (maxlength 60)",
+   "input": "61 characters",
+   "expected": "value kept at 60 characters",
+   "actual": "value length 60",
+   "pass": true
+  },
+  {
+   "id": "B5",
+   "cat": "Boundary",
+   "desc": "email 100 characters",
+   "input": "100-character address",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B6",
+   "cat": "Boundary",
+   "desc": "start date 2026-11-30 (day before min)",
+   "input": "=2026-11-30",
+   "expected": "blocked",
+   "actual": "blocked: Value must be 12/01/2026 or later.",
+   "pass": true
+  },
+  {
+   "id": "B7",
+   "cat": "Boundary",
+   "desc": "start date 2026-12-01 (min)",
+   "input": "=2026-12-01",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B8",
+   "cat": "Boundary",
+   "desc": "start date 2027-06-30 (max)",
+   "input": "=2027-06-30",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B9",
+   "cat": "Boundary",
+   "desc": "start date 2027-07-01 (day after max)",
+   "input": "=2027-07-01",
+   "expected": "blocked",
+   "actual": "blocked: Value must be 06/30/2027 or earlier.",
+   "pass": true
+  },
+  {
+   "id": "B10",
+   "cat": "Boundary",
+   "desc": "student number 0",
+   "input": "0",
+   "expected": "blocked",
+   "actual": "blocked: Value must be greater than or equal to 1.",
+   "pass": true
+  },
+  {
+   "id": "B11",
+   "cat": "Boundary",
+   "desc": "student number 1",
+   "input": "1",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B12",
+   "cat": "Boundary",
+   "desc": "student number 999999",
+   "input": "999999",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B13",
+   "cat": "Boundary",
+   "desc": "student number 1000000",
+   "input": "1000000",
+   "expected": "blocked",
+   "actual": "blocked: Value must be less than or equal to 999999.",
+   "pass": true
+  },
+  {
+   "id": "B14",
+   "cat": "Boundary",
+   "desc": "phone 6 characters",
+   "input": "123456",
+   "expected": "blocked",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "B15",
+   "cat": "Boundary",
+   "desc": "phone 7 characters",
+   "input": "1234567",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B16",
+   "cat": "Boundary",
+   "desc": "phone 20 characters",
+   "input": "+20 (010) 1234-5678-",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "B17",
+   "cat": "Boundary",
+   "desc": "phone 21 characters",
+   "input": "+20 (010) 1234-5678-9",
+   "expected": "blocked",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I1",
+   "cat": "Invalid",
+   "desc": "email without @",
+   "input": "student-at-example",
+   "expected": "blocked",
+   "actual": "blocked: Please include an '@' in the email address. 'student-at-example' is missing an '@'.",
+   "pass": true
+  },
+  {
+   "id": "I2",
+   "cat": "Invalid",
+   "desc": "email a@b (valid under the HTML email rule)",
+   "input": "a@b",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I3",
+   "cat": "Invalid",
+   "desc": "phone letters only",
+   "input": "abcdefghij",
+   "expected": "blocked",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I4",
+   "cat": "Invalid",
+   "desc": "phone mixed digits and letters",
+   "input": "12345-abc",
+   "expected": "blocked",
+   "actual": "blocked: Please match the requested format.",
+   "pass": true
+  },
+  {
+   "id": "I5",
+   "cat": "Invalid",
+   "desc": "phone valid international format",
+   "input": "+201001234567",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I6",
+   "cat": "Invalid",
+   "desc": "URL not a URL",
+   "input": "not-a-url",
+   "expected": "blocked",
+   "actual": "blocked: Please enter a URL.",
+   "pass": true
+  },
+  {
+   "id": "I7",
+   "cat": "Invalid",
+   "desc": "URL without scheme",
+   "input": "example.com",
+   "expected": "blocked",
+   "actual": "blocked: Please enter a URL.",
+   "pass": true
+  },
+  {
+   "id": "I8",
+   "cat": "Invalid",
+   "desc": "URL valid https",
+   "input": "https://example.com",
+   "expected": "accepted",
+   "actual": "accepted (valid)",
+   "pass": true
+  },
+  {
+   "id": "I9",
+   "cat": "Invalid",
+   "desc": "student number 1.5 (not whole)",
+   "input": "1.5",
+   "expected": "blocked",
+   "actual": "blocked: Please enter a valid value. The two nearest valid values are 1 and 2.",
+   "pass": true
+  },
+  {
+   "id": "I10",
+   "cat": "Invalid",
+   "desc": "student number letters typed",
+   "input": "abc",
+   "expected": "blocked",
+   "actual": "blocked: Please fill out this field.",
+   "pass": true
+  }
+ ],
+ "checkboxes_valid": true,
+ "reset": "cleared / status: The form has been reset.",
+ "help_open": "false|Hide form help",
+ "help_closed": "true|Show form help",
+ "invalid_submit": {
+  "posts": 0,
+  "status": "The form was not submitted. Correct the field marked as invalid, then submit again.",
+  "focus": "student-name"
+ },
+ "valid_submit": {
+  "posts": [
+   {
+    "url": "http://localhost:5500/submit",
+    "method": "POST",
+    "headers": {
+     "sec-ch-ua-platform": "\"Linux\"",
+     "Referer": "http://localhost:5500/register.html",
+     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+     "sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Google Chrome\";v=\"157\", \"Chromium\";v=\"157\"",
+     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+     "sec-ch-ua-mobile": "?0"
+    },
+    "body": "student_name=Test+User&email=test%40example.com&phone=%2B201001234567&start_date=2026-12-05&student_number=123456&portfolio_url=&study_format=online&topic_html=yes&topic_accessibility=yes"
+   }
+  ],
+  "status": "Registration submitted to the local demonstration server. No information has been saved permanently."
+ },
+ "formdata_empty_choices": "student_name,email,phone,start_date,student_number,portfolio_url",
+ "tab": {
+  "index": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "A Register for the course | outline solid 3px",
+   "A Meet the course staff | outline solid 3px",
+   "A View the weekly class schedule | outline solid 3px",
+   "A Open the student registration form | outline solid 3px",
+   "A Read MDN's Learn web development guide | outline solid 3px",
+   "A Download the Web Design course outline ( | outline solid 3px",
+   "A Email the course team about a course que | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "staff": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "A Check the practical-session schedule | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "schedule": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "DIV Weekly timetable, scrollable | outline solid 3px",
+   "A Register using the student registration  | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ],
+  "register": [
+   "A Skip to main content | outline solid 3px",
+   "A Web Design and Development course home | outline solid 3px",
+   "A Home | outline solid 3px",
+   "A Course staff | outline solid 3px",
+   "A Schedule | outline solid 3px",
+   "A Registration | outline solid 3px",
+   "INPUT student_name | outline solid 3px",
+   "INPUT email | outline solid 3px",
+   "INPUT phone | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline solid 3px",
+   "INPUT start_date | outline none 3px",
+   "INPUT student_number | outline solid 3px",
+   "INPUT portfolio_url | outline solid 3px",
+   "INPUT study_format | outline solid 3px",
+   "INPUT topic_html | outline solid 3px",
+   "INPUT topic_css | outline solid 3px",
+   "INPUT topic_accessibility | outline solid 3px",
+   "BUTTON Submit registration | outline solid 3px",
+   "BUTTON Reset form | outline solid 3px",
+   "BUTTON Show form help | outline solid 3px",
+   "A Return to the course home page | outline solid 3px"
+  ]
+ },
+ "skip": {
+  "index": {
+   "visible": true,
+   "top": 16,
+   "left": 16,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "staff": {
+   "visible": true,
+   "top": 16,
+   "left": 16,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "schedule": {
+   "visible": true,
+   "top": 16,
+   "left": 16,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  },
+  "register": {
+   "visible": true,
+   "top": 16,
+   "left": 16,
+   "after_enter": "MAIN#main-content hash=#main-content"
+  }
+ },
+ "ax": {
+  "index": {
+   "landmarks": [
+    "banner",
+    "main",
+    "contentinfo",
+    "navigation \"Main navigation\"",
+    "region \"Web Design & Development\"",
+    "complementary \"Quick information\""
+   ],
+   "headings": [
+    {
+     "level": 1,
+     "name": "Web Design & Development"
+    },
+    {
+     "level": 2,
+     "name": "About this course"
+    },
+    {
+     "level": 2,
+     "name": "Learning outcomes"
+    },
+    {
+     "level": 2,
+     "name": "Weekly teaching sessions"
+    },
+    {
+     "level": 2,
+     "name": "Quick information"
+    },
+    {
+     "level": 3,
+     "name": "Useful pages"
+    },
+    {
+     "level": 3,
+     "name": "External learning resource"
+    }
+   ]
+  },
+  "staff": {
+   "landmarks": [
+    "banner",
+    "main",
+    "contentinfo",
+    "navigation \"Main navigation\"",
+    "complementary \"Contact and support\""
+   ],
+   "headings": [
+    {
+     "level": 1,
+     "name": "Course staff"
+    },
+    {
+     "level": 2,
+     "name": "Teaching team"
+    },
+    {
+     "level": 3,
+     "name": "Dr. Hend Shaaban"
+    },
+    {
+     "level": 3,
+     "name": "TA Fatma El-Sayed"
+    },
+    {
+     "level": 2,
+     "name": "Staff responsibilities"
+    },
+    {
+     "level": 2,
+     "name": "Contact and support"
+    },
+    {
+     "level": 3,
+     "name": "Before asking for help"
+    }
+   ]
+  },
+  "schedule": {
+   "landmarks": [
+    "banner",
+    "main",
+    "contentinfo",
+    "navigation \"Main navigation\"",
+    "region \"Class timetable\"",
+    "region \"How to read the timetable\"",
+    "region \"Weekly timetable, scrollable\""
+   ],
+   "headings": [
+    {
+     "level": 1,
+     "name": "Weekly schedule"
+    },
+    {
+     "level": 2,
+     "name": "Class timetable"
+    },
+    {
+     "level": 2,
+     "name": "How to read the timetable"
+    },
+    {
+     "level": 2,
+     "name": "Schedule notes"
+    }
+   ]
+  },
+  "register": {
+   "landmarks": [
+    "banner",
+    "main",
+    "contentinfo",
+    "navigation \"Main navigation\"",
+    "region \"Registration form\"",
+    "form"
+   ],
+   "headings": [
+    {
+     "level": 1,
+     "name": "Student registration"
+    },
+    {
+     "level": 2,
+     "name": "Registration form"
+    }
+   ]
+  }
+ },
+ "contrast": {
+  "index": [
+   {
+    "el": "a.skip-link",
+    "text": "Skip to main content",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a.brand",
+    "text": "WD",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "span",
+    "text": "&",
+    "fg": "rgb(131, 197, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "a",
+    "text": "Home",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(36, 70, 117)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Course staff",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p.eyebrow",
+    "text": "COURSE MINI-SITE",
+    "fg": "rgb(179, 219, 255)",
+    "bg": {
+     "gradient": [
+      "rgb(16, 42, 86)",
+      "rgb(7, 86, 168)"
+     ]
+    },
+    "size": 12.48,
+    "bold": true
+   },
+   {
+    "el": "h1",
+    "text": "Web Design & Development",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "gradient": [
+      "rgb(16, 42, 86)",
+      "rgb(7, 86, 168)"
+     ]
+    },
+    "size": 57.6,
+    "bold": true
+   },
+   {
+    "el": "p.lead",
+    "text": "A practical course covering th",
+    "fg": "rgb(232, 243, 255)",
+    "bg": {
+     "gradient": [
+      "rgb(16, 42, 86)",
+      "rgb(7, 86, 168)"
+     ]
+    },
+    "size": 17.92,
+    "bold": false
+   },
+   {
+    "el": "a.button-link",
+    "text": "Register for the course",
+    "fg": "rgb(6, 61, 121)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "h2",
+    "text": "About this course",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 24.8,
+    "bold": true
+   },
+   {
+    "el": "p",
+    "text": "Web Design & Development intro",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "abbr",
+    "text": "HTML",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "li",
+    "text": "Explain the basic structure of",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "figcaption",
+    "text": "A course project moves from pa",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 14.72,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "11:00 AM",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "h2",
+    "text": "Quick information",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 20.8,
+    "bold": true
+   },
+   {
+    "el": "dt",
+    "text": "Course area",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "dd",
+    "text": "Web technologies",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "h3",
+    "text": "Useful pages",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 17.92,
+    "bold": true
+   },
+   {
+    "el": "a",
+    "text": "Meet the course staff",
+    "fg": "rgb(6, 61, 121)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "cite",
+    "text": "Learn web development",
+    "fg": "rgb(6, 61, 121)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p",
+    "text": ".",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p",
+    "text": "Web Design & Development — Cou",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Return to the course home page",
+    "fg": "rgb(185, 221, 255)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "2026",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   }
+  ],
+  "staff": [
+   {
+    "el": "a.skip-link",
+    "text": "Skip to main content",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a.brand",
+    "text": "WD",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "span",
+    "text": "&",
+    "fg": "rgb(131, 197, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "a",
+    "text": "Home",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Course staff",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(36, 70, 117)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p.eyebrow",
+    "text": "PEOPLE",
+    "fg": "rgb(7, 86, 168)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 12.48,
+    "bold": true
+   },
+   {
+    "el": "h1",
+    "text": "Course staff",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 57.6,
+    "bold": true
+   },
+   {
+    "el": "p.lead",
+    "text": "Meet the instructor and teachi",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 17.92,
+    "bold": false
+   },
+   {
+    "el": "h2",
+    "text": "Teaching team",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 24.8,
+    "bold": true
+   },
+   {
+    "el": "figcaption",
+    "text": "Course teaching and practical ",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 14.72,
+    "bold": false
+   },
+   {
+    "el": "h3",
+    "text": "Dr. Hend Shaaban",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 17.92,
+    "bold": true
+   },
+   {
+    "el": "strong",
+    "text": "Role:",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "p",
+    "text": "Course instructor",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "11:00 AM",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "dt",
+    "text": "Course planning",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "dd",
+    "text": "Organising topics, learning ou",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "h2",
+    "text": "Contact and support",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 20.8,
+    "bold": true
+   },
+   {
+    "el": "p",
+    "text": "For course questions, contact ",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "h3",
+    "text": "Before asking for help",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 17.92,
+    "bold": true
+   },
+   {
+    "el": "li",
+    "text": "Include the page name.",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Check the practical-session sc",
+    "fg": "rgb(6, 61, 121)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p",
+    "text": "Web Design & Development — Cou",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Return to the course home page",
+    "fg": "rgb(185, 221, 255)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "2026",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   }
+  ],
+  "schedule": [
+   {
+    "el": "a.skip-link",
+    "text": "Skip to main content",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a.brand",
+    "text": "WD",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "span",
+    "text": "&",
+    "fg": "rgb(131, 197, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "a",
+    "text": "Home",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Schedule",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(36, 70, 117)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p.eyebrow",
+    "text": "PLAN YOUR WEEK",
+    "fg": "rgb(7, 86, 168)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 12.48,
+    "bold": true
+   },
+   {
+    "el": "h1",
+    "text": "Weekly schedule",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 57.6,
+    "bold": true
+   },
+   {
+    "el": "p.lead",
+    "text": "The weekly lecture and practic",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 17.92,
+    "bold": false
+   },
+   {
+    "el": "h2",
+    "text": "Class timetable",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 24.8,
+    "bold": true
+   },
+   {
+    "el": "caption",
+    "text": "Weekly Web Design & Developmen",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "th",
+    "text": "Day",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(220, 234, 250)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "th",
+    "text": "Sunday",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(237, 244, 252)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "time",
+    "text": "11:00 AM",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "td",
+    "text": "–",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p.note",
+    "text": "Times and teaching-team names ",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p",
+    "text": "Take the cell “Lecture — Dr. H",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "li",
+    "text": "Sunday sessions are scheduled ",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Register using the student reg",
+    "fg": "rgb(6, 61, 121)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p",
+    "text": "Web Design & Development — Cou",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Return to the course home page",
+    "fg": "rgb(185, 221, 255)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "2026",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   }
+  ],
+  "register": [
+   {
+    "el": "a.skip-link",
+    "text": "Skip to main content",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a.brand",
+    "text": "WD",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "span",
+    "text": "&",
+    "fg": "rgb(131, 197, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 23.2,
+    "bold": true
+   },
+   {
+    "el": "a",
+    "text": "Home",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(16, 42, 86)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Registration",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(36, 70, 117)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "p.eyebrow",
+    "text": "JOIN THE COURSE",
+    "fg": "rgb(7, 86, 168)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 12.48,
+    "bold": true
+   },
+   {
+    "el": "h1",
+    "text": "Student registration",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 57.6,
+    "bold": true
+   },
+   {
+    "el": "p.lead",
+    "text": "Complete only the information ",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(244, 247, 251)"
+    },
+    "size": 17.92,
+    "bold": false
+   },
+   {
+    "el": "h2",
+    "text": "Registration form",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 24.8,
+    "bold": true
+   },
+   {
+    "el": "p",
+    "text": "Fields marked “required”",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "em",
+    "text": "must",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "1 December 2026",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "legend",
+    "text": "Student details",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "label",
+    "text": "Full name (required)",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "small",
+    "text": "2 to 60 characters.",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 13.12,
+    "bold": false
+   },
+   {
+    "el": "p.fieldset-hint",
+    "text": "Choose one preferred learning ",
+    "fg": "rgb(66, 81, 107)",
+    "bg": {
+     "color": "rgb(255, 255, 255)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "button.primary-button",
+    "text": "Submit registration",
+    "fg": "rgb(255, 255, 255)",
+    "bg": {
+     "color": "rgb(6, 61, 121)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "button.secondary-button",
+    "text": "Reset form",
+    "fg": "rgb(20, 33, 61)",
+    "bg": {
+     "color": "rgb(232, 238, 247)"
+    },
+    "size": 16,
+    "bold": true
+   },
+   {
+    "el": "p",
+    "text": "Web Design & Development — Cou",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "a",
+    "text": "Return to the course home page",
+    "fg": "rgb(185, 221, 255)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   },
+   {
+    "el": "time",
+    "text": "2026",
+    "fg": "rgb(234, 242, 252)",
+    "bg": {
+     "color": "rgb(11, 29, 58)"
+    },
+    "size": 16,
+    "bold": false
+   }
+  ]
+ },
+ "borders": {
+  "input_border": "rgb(102, 120, 154)",
+  "input_bg": "rgb(255, 255, 255)",
+  "fieldset_border": "rgb(122, 139, 171)",
+  "card_bg": "rgb(255, 255, 255)",
+  "placeholder": "rgb(117, 117, 117)",
+  "page_bg": "rgb(244, 247, 251)",
+  "focus_outline": "",
+  "secondary_border": "rgb(102, 120, 154)",
+  "secondary_bg": "rgb(232, 238, 247)"
+ },
+ "states": {
+  "index .nav-list a:not([aria-current])": {
+   "rest": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   },
+   "hover": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(36, 70, 117)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   },
+   "active": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(36, 70, 117)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   }
+  },
+  "index .button-link": {
+   "rest": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgb(255, 255, 255)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "auto"
+   },
+   "hover": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgb(232, 241, 252)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "2px"
+   },
+   "active": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgb(232, 241, 252)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "2px"
+   }
+  },
+  "index .sidebar a": {
+   "rest": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "1px"
+   },
+   "hover": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "1px"
+   },
+   "active": {
+    "color": "rgb(6, 61, 121)",
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(6, 61, 121)",
+    "deco": "1px"
+   }
+  },
+  "register .primary-button": {
+   "rest": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(6, 61, 121)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   },
+   "hover": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(6, 61, 121)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   },
+   "active": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(6, 61, 121)",
+    "border": "rgb(255, 255, 255)",
+    "deco": "auto"
+   }
+  },
+  "register .secondary-button[type=reset]": {
+   "rest": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   },
+   "hover": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   },
+   "active": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   }
+  },
+  "register #help-button": {
+   "rest": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   },
+   "hover": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   },
+   "active": {
+    "color": "rgb(20, 33, 61)",
+    "background": "rgb(232, 238, 247)",
+    "border": "rgb(102, 120, 154)",
+    "deco": "auto"
+   }
+  }
+ },
+ "focus_style": {
+  "outline": "rgb(16, 42, 86) 3px solid",
+  "shadow": "rgb(255, 191, 71) 0px 0px 0px 3px"
+ },
+ "overflow": {
+  "index@390": "390/390",
+  "index@768": "753/753",
+  "index@1400": "1385/1385",
+  "staff@390": "390/390",
+  "staff@768": "753/753",
+  "staff@1400": "1385/1385",
+  "schedule@390": "390/390",
+  "schedule@768": "753/753",
+  "schedule@1400": "1385/1385",
+  "register@390": "390/390",
+  "register@768": "753/753",
+  "register@1400": "1385/1385"
+ },
+ "focusables": {
+  "index": [],
+  "staff": [],
+  "schedule": [],
+  "register": []
+ },
+ "console": []
+}
