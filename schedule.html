@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Weekly lecture and practical schedule for Web Design and Development.">
   <title>Schedule | Web Design &amp; Development</title>
+  <link rel="icon" href="assets/course-illustration.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -36,6 +37,10 @@
       <div class="table-wrap" tabindex="0" role="region" aria-label="Weekly timetable, scrollable">
         <table>
           <caption>Weekly Web Design &amp; Development teaching schedule</caption>
+          <colgroup>
+            <col>
+            <col span="2">
+          </colgroup>
           <thead>
             <tr>
               <th scope="col" rowspan="2">Day</th>
@@ -63,6 +68,11 @@
       <p class="note">Times and teaching-team names are shown as provided for this course mini-site. Check course announcements for any room changes or schedule updates.</p>
     </section>
 
+    <section class="content-card" aria-labelledby="read-heading">
+      <h2 id="read-heading">How to read the timetable</h2>
+      <p>Take the cell “Lecture — Dr. Hend Shaaban”. Three headers describe it: the row header “Sunday”, the column header “Instructor / session”, and the column group “Session details” above it. A screen reader announces those headers as you move into the cell, so the cell reads as: Sunday, Session details, Instructor / session, Lecture, Dr. Hend Shaaban. The “Day” header spans two header rows because it covers both the group row and the column-header row.</p>
+    </section>
+
     <section class="content-card">
       <h2>Schedule notes</h2>
       <ul>
@@ -77,7 +87,7 @@
   <footer class="site-footer">
     <p>Web Design &amp; Development — Course Mini-Site</p>
     <p><a href="index.html#main-content">Return to the course home page</a></p>
-    <p>&copy; 2026 Course Mini-Site. Demonstration content.</p>
+    <p>&copy; <time datetime="2026">2026</time> Course Mini-Site. Demonstration content.</p>
   </footer>
 </body>
 </html>

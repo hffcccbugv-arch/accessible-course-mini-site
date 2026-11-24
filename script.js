@@ -11,11 +11,19 @@ if (helpButton && formHelp) {
 }
 
 if (registrationForm && formStatus) {
+  // Browsers block an invalid submit before the submit event fires, so the status message is set from the invalid event.
+  registrationForm.addEventListener("invalid", () => {
+    formStatus.textContent = "The form was not submitted. Correct the field marked as invalid, then submit again.";
+  }, true);
+
   registrationForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     formStatus.textContent = "";
 
-    if (!registrationForm.reportValidity()) return;
+    if (!registrationForm.reportValidity()) {
+      formStatus.textContent = "The form was not submitted. Correct the field marked as invalid, then submit again.";
+      return;
+    }
 
     const formData = new FormData(registrationForm);
     const pairs = new URLSearchParams();

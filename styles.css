@@ -56,7 +56,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, .table-wrap:focus-vi
   color: #fff; background: linear-gradient(120deg, #102a56, #0756a8);
   margin-bottom: 1.5rem;
 }
-.eyebrow { color: #8ccaff; font-size: .78rem; font-weight: 700; letter-spacing: .15em; margin: 0 0 .6rem; }
+.eyebrow { color: #b3dbff; font-size: .78rem; font-weight: 700; letter-spacing: .15em; margin: 0 0 .6rem; }
 h1, h2, h3 { font-family: Manrope, "DM Sans", sans-serif; line-height: 1.2; }
 h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0 0 1rem; letter-spacing: -.04em; }
 h2 { font-size: 1.55rem; margin: 0 0 1rem; }
@@ -71,7 +71,7 @@ h3 { font-size: 1.12rem; margin: 1.5rem 0 .55rem; }
 .button-link:hover { background: #e8f1fc; }
 .primary-button { background: var(--blue-dark); color: #fff; }
 .primary-button:hover { background: #102a56; }
-.secondary-button { background: #e8eef7; color: var(--ink); border: 1px solid var(--line); }
+.secondary-button { background: #e8eef7; color: var(--ink); border: 1px solid #66789a; }
 .secondary-button:hover { background: #dce7f5; }
 .content-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(250px, .9fr); gap: 1.5rem; align-items: start; }
 .content-card, .sidebar {
@@ -101,7 +101,7 @@ tbody th { background: #edf4fc; }
 tfoot th, tfoot td { background: #e8eef7; font-weight: 700; }
 .note, .fieldset-hint, small { color: var(--muted); }
 .form-card { max-width: 900px; }
-fieldset { border: 1px solid var(--line); border-radius: .8rem; padding: 1.2rem; margin: 1.25rem 0; }
+fieldset { border: 1px solid #7a8bab; border-radius: .8rem; padding: 1.2rem; margin: 1.25rem 0; }
 legend { font-weight: 700; padding: 0 .4rem; }
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .field label { display: block; font-weight: 600; margin-bottom: .35rem; }
@@ -111,7 +111,7 @@ legend { font-weight: 700; padding: 0 .4rem; }
 }
 .field small { display: block; margin-top: .3rem; font-size: .82rem; }
 .choice-list { display: grid; gap: .65rem; }
-.choice-list label { display: flex; gap: .65rem; align-items: center; }
+.choice { display: flex; gap: .65rem; align-items: center; }
 .choice-list input { width: 1.1rem; height: 1.1rem; accent-color: var(--blue-dark); }
 .form-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.4rem; }
 

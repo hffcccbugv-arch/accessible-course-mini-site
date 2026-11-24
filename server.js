@@ -1,5 +1,6 @@
 // Optional local server for testing the form's POST request in DevTools > Network.
-// Requires Node.js. It stores no submitted data.
+// Requires Node.js. It stores nothing and prints only the field NAMES it received
+// (with the length of each value), never the values, so no personal data is logged.
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -11,18 +12,20 @@ const mime = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".svg": "image/svg+xml",
-  ".txt": "text/plain; charset=utf-8"
+  ".txt": "text/plain; charset=utf-8",
+  ".md": "text/plain; charset=utf-8"
 };
 
 http.createServer((req, res) => {
   if (req.method === "POST" && req.url === "/submit") {
     let body = "";
-    req.on("data", chunk => body += chunk);
+    req.on("data", chunk => { body += chunk; if (body.length > 10000) req.destroy(); });
     req.on("end", () => {
-      const submittedPairs = querystring.parse(body);
-      console.log("Submitted name=value pairs:", submittedPairs);
+      const submitted = querystring.parse(body);
+      const summary = Object.keys(submitted).map(k => k + " (" + String(submitted[k]).length + " chars)");
+      console.log("Received fields:", summary.join(", ") || "none");
       res.writeHead(200, { "Content-Type": "application/json; charset=utf-8" });
-      res.end(JSON.stringify({ received: true }));
+      res.end(JSON.stringify({ received: Object.keys(submitted) }));
     });
     return;
   }
@@ -37,4 +40,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": mime[path.extname(filePath)] || "application/octet-stream" });
     res.end(data);
   });
-}).listen(5500, () => console.log("Course mini-site running at http://localhost:5500"));
+}).listen(5500, "127.0.0.1", () => console.log("Course mini-site running at http://localhost:5500"));

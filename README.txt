@@ -1,40 +1,29 @@
 ACCESSIBLE COURSE MINI-SITE
 Course: Web Design & Development
 
+Original site and authorship: Yousef (teammate). This copy was edited for Mazen Rashad with help from an AI assistant, which was used to audit the pages, fix the items listed in CHANGES.md, run the tests in evidence/, and draft plans/ and reflection.md. The student must be able to explain any line.
+
 CONTENTS
-- index.html: course home and learning outcomes
-- staff.html: teaching team information
-- schedule.html: accessible weekly timetable (Sunday and Wednesday sessions)
-- register.html: accessible registration form
-- styles.css and script.js: styling and interactions
-- server.js: optional local server for the form Network-panel evidence
-- plans/: landmark maps, heading outlines, and form-field plan
-- evidence/: 20 test cases and evidence-record templates
-- reflection.md: 300–400 word reflection draft
+- index.html, staff.html, schedule.html, register.html: the four pages
+- styles.css, script.js: styling and interactions
+- server.js: optional local server for the form (see below)
+- assets/: illustration (also used as the icon) and course outline
+- plans/: landmark map, heading outlines, form-field plan, plan provenance, plan-vs-build
+- evidence/: 34 test cases (Chrome and Firefox), validator output, network capture, keyboard notes, accessibility tree summary, contrast table, defect log, screenshots, raw run data
+- reflection.md: draft reflection for the student to confirm or edit
+- STATUS.md: requirement-by-requirement status
 
 OPEN IN VS CODE
-1. Extract the ZIP file.
-2. Open VS Code.
-3. Choose File > Open Folder and select Accessible_Course_Mini_Site.
-4. For a quick visual preview, open index.html with Live Server.
+1. Extract the ZIP file. 2. File > Open Folder. 3. Open index.html with Live Server for a visual preview.
 
-IMPORTANT FORM TEST
-The registration form uses a local POST endpoint so the submitted name=value pairs can appear in the browser Network panel.
-1. Install Node.js if it is not already installed.
-2. Open the VS Code terminal in this folder.
-3. Run: node server.js
-4. Open http://localhost:5500/register.html
-5. Open browser Developer Tools > Network, submit test data, and inspect the POST request named "submit".
-6. The server prints the submitted pairs in the terminal and does not save them.
-Live Server alone does not provide this POST endpoint; use the Node command for this specific evidence.
+RUN THE FORM SERVER (local only)
+1. Install Node.js. 2. In the VS Code terminal in this folder run: node server.js
+3. Open http://localhost:5500/register.html, fill the form and submit.
+4. The terminal prints only the field NAMES and the length of each value. Nothing is saved. The server listens on 127.0.0.1 only.
+5. To see the name=value pairs, open the browser DevTools Network panel and click the submit request.
 
-BEFORE SUBMISSION
-- Confirm the displayed schedule and course information against any later official announcements. No unprovided email address or room number has been added.
-- Run all four HTML files through the Nu HTML Checker: https://validator.w3.org/nu/
-- Test keyboard-only operation and record the actual result.
-- Measure text/background contrast with a contrast checker and record actual ratios.
-- Run the 20 test cases in two browsers and fill in the actual results. Do not claim a test passed unless you performed it.
-- Use a screen reader available on your device/computer and record what it announces.
-- The site is a front-end demonstration and does not permanently store registrations.
+GITHUB PAGES
+GitHub Pages serves static files only and cannot receive a POST. On the published site, a valid submit shows an error from the host instead of the local demo message. The form demonstration works only with node server.js.
 
-CHANGES.md lists what was changed in this copy and why. evidence/test-cases.md now holds assistant-run Chrome results and real Network pairs; repeat in a second browser.
+TESTING NOTES
+Tests were run by a script in Chrome 157 and Firefox 161 (headless). No screen reader was run. Anything not run is marked as unrun in STATUS.md.

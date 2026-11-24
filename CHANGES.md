@@ -1,18 +1,22 @@
 # Changes made to this copy (24 Nov 2026)
 
-Original site and authorship: Yousef (the teammate's repository was not touched). This copy was edited by an AI assistant for Mazen Rashad. Design, text and structure are the original's except for the items below.
+Original site and authorship: Yousef (the teammate's repository was not touched). This copy was edited with an AI assistant for Mazen Rashad. Design, text and structure are the original's except for the items below.
 
 ## Markup
-- index.html: `<abbr>` on HTML and CSS (first use); nested list under outcome 5 (keyboard / browser tools); `<time datetime="11:00">` and `13:00` for session times; `<cite>` around the title "Learn web development" in the MDN link.
-- staff.html: session times in `<time>`; the staff picture is now decorative (`alt=""`) because its caption already says what it shows.
-- schedule.html: times in `<time>`; the table wrapper is a labelled, focusable region.
-- register.html: `<em>` on "must"; visible start window as `<time datetime="2026-12-01">` and `2027-06-30`, the same values as the date field's min and max; `id` and `for` on all radios and checkboxes; phone pattern fixed.
-- All pages: `tabindex="-1"` on main so the skip link moves focus.
+- All pages: times use the time element; footer year uses time datetime; main has tabindex -1 so the skip link moves focus; icon link added (removes a favicon 404).
+- index.html: abbr for HTML and CSS, nested list under learning outcome 5, cite on the MDN title.
+- staff.html: decorative image alt is empty.
+- schedule.html: colgroup, labelled focusable scroll region for the table, new section "How to read the timetable" (new h2).
+- register.html: separate input and label for every radio and checkbox; corrected phone pattern; visible start window as time elements; aria-describedby helper text for name, email, date, number and URL; student number attributes (min 1, max 999999, step 1) left as the original.
 
-## Style (styles.css)
-- Focus ring: navy outline plus amber ring; table wrapper gets the same focus style.
-- Input border #8798b0 to #66789a (4.45:1 on white; was 2.94:1).
-- Empty status message hidden; main has no outline when focused by the skip link.
+## CSS
+- Single .choice rule for radio and checkbox rows; focus ring (navy outline plus amber shadow) also on the table wrapper; input border darkened to #66789a; secondary button border #66789a and fieldset border #7a8bab (non-text contrast); empty status message hidden; hero eyebrow colour #8ccaff to #b3dbff (contrast defect).
 
-## Not changed
-Student number is still `type="number"` (the plan table lists it). The rubric prefers `pattern` for a fixed-shape ID; switching would drop one of the eight input types, so decide yourself. Google Fonts import kept. The reflection text is unchanged: it is general and needs real specifics from the student. Weekday names ("Sunday") stay plain text because a weekday alone is not a valid `datetime` value.
+## JavaScript
+- Invalid submit now shows a visible status message (set from the invalid event).
+
+## server.js
+- Binds 127.0.0.1, logs field names and value lengths only, 10 kB body limit, markdown mime type.
+
+## Documentation and evidence
+- plans/ and evidence/ rewritten from the built pages and real test runs; reflection.md redrafted (student must confirm); README.txt and STATUS.md added.
