@@ -1,56 +1,15 @@
-# Landmark map — planned structure
+# Landmark map
 
-All four pages share the same shell so navigation and footer remain consistent.
+Applies to all four pages unless noted. Roles below are the HTML elements the pages use; the Chrome accessibility tree confirmed them (evidence/accessibility-tree.md).
 
-```text
-body
-├── a.skip-link  → #main-content
-├── header.site-header
-│   ├── a.brand
-│   └── nav[aria-label="Main navigation"]
-│       └── ul > li > a (Home, Course staff, Schedule, Registration)
-├── main#main-content
-│   └── page-specific content
-└── footer.site-footer
-```
+| Landmark | Element | Where | Purpose |
+|---|---|---|---|
+| banner | header | all pages | Course name and main navigation |
+| navigation "Main navigation" | nav | inside header | Links to the four pages; current page marked aria-current |
+| main | main#main-content | all pages | Page content; target of the skip link (tabindex -1) |
+| complementary | aside | index (Quick information), staff (Contact and support) | Side information that is not part of the main flow |
+| contentinfo | footer | all pages | Copyright year and course name |
 
-## Page-specific landmarks
-- **index.html:** main > hero section + content-grid (article + aside)
-- **staff.html:** main > page-intro + content-grid (article + aside)
-- **schedule.html:** main > page-intro + timetable section + notes section
-- **register.html:** main > page-intro + registration section containing the form
+Named regions (sections with an accessible name): index "Web Design & Development" hero; schedule "Class timetable", "How to read the timetable", and the scrollable timetable wrapper (role region, focusable); register "Registration form" with the form itself.
 
-# Heading outlines
-
-## index.html
-- H1: Web Design & Development
-  - H2: About this course
-  - H2: Learning outcomes
-  - H2: Weekly teaching sessions
-  - H2: Quick information (aside)
-    - H3: Useful pages
-    - H3: External learning resource
-
-## staff.html
-- H1: Course staff
-  - H2: Teaching team
-    - H3: Dr. Hend Shaaban
-    - H3: TA Fatma El-Sayed
-  - H2: Staff responsibilities
-  - H2: Contact and support (aside)
-    - H3: Before asking for help
-
-## schedule.html
-- H1: Weekly schedule
-  - H2: Class timetable
-  - H2: Schedule notes
-
-## register.html
-- H1: Student registration
-  - H2: Registration form
-
-# Notes
-The heading outline is intentionally hierarchical. A heading level is selected for its document structure, not its visual size.
-
-# Changes after the first build (24 Nov 2026)
-The landmark map and heading outlines above did not change. Content and markup changed as listed in CHANGES.md: time elements, a nested outcomes list, abbr/cite/em, label for and id on radios and checkboxes, a corrected phone pattern, and a scrollable timetable wrapper.
+Skip link: the first focusable element on every page, jumps to main#main-content.
